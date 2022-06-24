@@ -1,0 +1,15 @@
+@mixin screen-mobile () {
+
+    @media (max-width: 767px) {
+        @content;
+    } 
+}
+
+.wrapper {
+    width: 1024px;
+    margin: 0 auto;
+
+    @include screen-mobile() {
+        width: 100%;
+    }
+}

@@ -1,0 +1,43 @@
+@mixin screen-mobile () {
+
+    @media (max-width: 767px) {
+        @content;
+    } 
+}
+
+.toolbar-container {
+    background-color: rgba(128,128,128, 0.5);
+    text-align: right;
+
+    @include screen-mobile() {
+        text-align: center;
+    }
+
+    .toolbar-container__name {
+        display: inline-block;
+        font-size: 1.2em;
+        vertical-align: middle;
+        
+        @include screen-mobile() {
+            font-size: 0.88em;
+        }
+
+        span {
+            font-size: 1.34em;
+
+            @include screen-mobile() {
+                font-size: 1.2em;
+            }
+        }
+    }
+
+    .toolbar-container__logout {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 6px 12px;
+
+        @include screen-mobile() {
+            margin: 6 6px;
+        }
+    }
+}

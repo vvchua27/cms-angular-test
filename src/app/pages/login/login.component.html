@@ -1,0 +1,18 @@
+<div class="login-wrapper">
+    <div class="login-wrapper-container">
+        <form class="login-wrapper-container-form" [formGroup]="loginForm" (ngSubmit)="login()">
+            <div class="login-wrapper-container-form__username">
+                <label for="username">Username: </label>
+                <input id="username" type="text" formControlName="username" autocomplete="off">
+            </div>
+            <div class="login-wrapper-container-form__password">
+                <label for="password">Password: </label>
+                <input id="password" type="text" type="password" formControlName="password" autocomplete="off">
+            </div>
+            <div class="login-wrapper-container-form__login">
+                <button [disabled]="!loginForm.valid" mat-raised-button color="primary" type="submit">Login</button>
+            </div>
+        </form>
+        <p *ngIf="!isValid" class="error-message">{{errorMessage}}</p>
+    </div>
+</div>

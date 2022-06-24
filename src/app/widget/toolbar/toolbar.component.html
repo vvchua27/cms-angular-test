@@ -1,0 +1,12 @@
+<div class="toolbar-container">
+    <div class="toolbar-container__name">
+        Welcome back, <span>{{user.name}}</span>!
+    </div>
+    <div class="toolbar-container__logout">
+        <form (ngSubmit)="logout()">
+            <button mat-stroked-button color="warn" type="submit">Logout</button>
+        </form>
+    </div>
+</div>
+
+

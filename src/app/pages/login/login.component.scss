@@ -1,0 +1,48 @@
+@mixin screen-mobile () {
+
+    @media (max-width: 767px) {
+        @content;
+    } 
+}
+
+.login-wrapper {
+
+    width: 1024px;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+
+    @include screen-mobile() {
+        width: 100%;
+    }
+
+    .login-wrapper-container {
+
+        text-align: center;
+        max-height: 400px;
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        padding: 40px;
+        transform: translate(-50%, -50%);
+        background-color: rgba(75,0,130, 0.3);
+
+        .login-wrapper-container-form__username {
+            margin: 6px 0px;
+        }
+
+        .login-wrapper-container-form__password {
+            margin: 6px 0px;
+        }
+
+        .login-wrapper-container-form__login {
+            margin-top: 20px;
+        }
+
+        .error-message {
+            color: red;
+        }
+    }
+}
+
