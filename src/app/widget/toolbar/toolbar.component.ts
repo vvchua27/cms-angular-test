@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { UserService } from 'src/app/core/user.service';
 import { AuthService } from 'src/app/core/auth.service';
-import { LocalStorageService } from 'src/app/core/local-storage-service';
+import { LocalStorageService } from 'src/app/core/local-storage.service';
 
 @Component({
   selector: 'toolbar-widget',
@@ -13,6 +14,7 @@ export class ToolbarComponent implements OnInit {
 
     constructor(
         private Router: Router,
+        private UserService: UserService,
         private AuthService: AuthService,
         private LocalStorageService: LocalStorageService
     ) { }
@@ -20,10 +22,19 @@ export class ToolbarComponent implements OnInit {
     user: any = {};
 
     ngOnInit() {
-        this.AuthService.user.subscribe((item:any) => {
-            let decodedUser = JSON.parse(item);
+        this.UserService.user.subscribe((item:any) => {
 
-            this.user = decodedUser[0];
+            if (item !== null) {
+                this.user = item[0];
+                return;
+            }
+
+            this.AuthService.user.subscribe((item:any) => {
+
+                let decodedUser = JSON.parse(item);
+                
+                this.user = decodedUser[0];
+            });
         });
     }
 

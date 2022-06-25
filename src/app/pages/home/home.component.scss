@@ -12,4 +12,8 @@
     @include screen-mobile() {
         width: 100%;
     }
+
+    .wrapper__listing-wrapper {
+        margin-top: 30px;
+    }
 }

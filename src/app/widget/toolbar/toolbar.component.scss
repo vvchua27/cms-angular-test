@@ -23,11 +23,7 @@
         }
 
         span {
-            font-size: 1.34em;
-
-            @include screen-mobile() {
-                font-size: 1.2em;
-            }
+            font-weight: bold;
         }
     }
 

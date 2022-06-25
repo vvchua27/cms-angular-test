@@ -1,1 +1,62 @@
-Listing
+<div class="listing-container">
+    <form class="listing-container-form" [formGroup]="searchForm">
+        <div class="listing-container-form__username">
+            <label for="search">Search: </label>
+            <input id="search" type="text" (keyup)="search()" formControlName="entry" autocomplete="off">
+        </div>
+        <div class="listing-container-form__searchby"listing-coi>
+            <button mat-raised-button (click)="setSearchType('id')"> ID </button>
+            <button mat-raised-button (click)="setSearchType('userId')"> User ID </button>
+            <button mat-raised-button (click)="setSearchType('title')"> Title </button>
+        </div>
+    </form>
+
+    <div class="listing-container-add">
+        <button mat-raised-button color="accent" (click)="showModal(user, 'ADD')">+ Add Article</button>
+    </div>
+
+    <table mat-table [dataSource]="articles" class="mat-elevation-z8 listing-container-table">
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef class="header-field">ID</th>
+            <td mat-cell *matCellDef="let article">{{article.id}}</td>
+        </ng-container>
+        
+        <ng-container matColumnDef="author">
+            <th mat-header-cell *matHeaderCellDef class="header-field">Author</th>
+            <td mat-cell *matCellDef="let article">{{article.author}}</td>
+        </ng-container>
+        
+        <ng-container matColumnDef="title">
+            <th mat-header-cell *matHeaderCellDef class="header-field">Title</th>
+            <td mat-cell *matCellDef="let article">{{article.title}}</td>
+        </ng-container>
+        
+        <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef class="header-field">Action</th>
+            <td mat-cell *matCellDef="let article">Edit</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+        <tr mat-row (click)="showModal(row, 'EDIT')" *matRowDef="let row; columns: fieldColumns;"></tr>
+    </table>
+
+    <div *ngIf="isShowModal" class="listing-container-modal">
+        <div class="listing-container-modal-header">
+            {{selectedAction}} <span *ngIf="selectedAction == 'EDIT'">{{selectedTitle}}</span> <span *ngIf="selectedAction == 'EDIT'">({{selectedId}})</span>
+        </div>
+        <div class="listing-container-modal-content">
+            <form class="listing-container-modal-content-form" [formGroup]="articleForm" (ngSubmit)="save()">
+                <div class="listing-container-modal-content__title">
+                    <input id="search" class="listing-container-modal-content__title-input" type="text" formControlName="title" autocomplete="off">
+                </div>
+                <div class="listing-container-modal-content__body">
+                    <textarea id="search" class="listing-container-modal-content__body-input" type="textarea" formControlName="body" autocomplete="off"></textarea>
+                </div>
+                <div class="listing-container-modal-action">
+                    <button class="listing-container-modal-action__cancel" mat-raised-button color="warn" (click)="closeModal()">Cancel</button>
+                    <button class="listing-container-modal-action__save" mat-raised-button color="primary" type="submit">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

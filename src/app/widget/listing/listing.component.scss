@@ -1,0 +1,133 @@
+@mixin screen-mobile () {
+
+    @media (max-width: 767px) {
+        @content;
+    } 
+}
+
+.listing-container {
+
+    .listing-container-form {
+        display: inline-block;
+        margin-bottom: 20px;
+
+        @include screen-mobile() {
+            display: block;
+            text-align: center;
+        }
+
+        .listing-container-form__username {
+            display: inline-block;
+            
+            @include screen-mobile() {
+                display: block;
+            }
+        }
+
+        .listing-container-form__searchby {
+            display: inline-block;
+            margin-left: 10px;
+
+            button{
+                margin-right: 6px;
+            }
+
+            @include screen-mobile() {
+                display: block;
+                margin-left: 0;
+                margin-top: 10px;
+            }
+        }
+    }
+
+    .listing-container-add {
+        margin-bottom: 20px;
+    }
+    
+    .mat-table {
+        width: 100%;
+        text-align: center;
+
+        .mat-header-row {
+            
+            .mat-header-cell {
+                text-align: center !important;
+            }
+        }
+        
+        .mat-row {
+
+            &:hover {
+                .mat-cell {
+                    border-color: currentColor;
+                }
+            }
+
+            .mat-cell {
+                border-bottom: 1px solid transparent;
+                border-top: 1px solid transparent;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .listing-container-modal {
+        text-align: center;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(58, 60, 133, 0.96);
+        border-radius: 25px;
+        box-shadow: 5px 10px 18px #888888;
+        border: 1px solid;
+        padding: 20px;
+        width: 500px;
+
+        .listing-container-modal-header {
+
+            font-size: 1.6em;
+            
+
+            span {
+                font-weight: bold;
+            }
+        }
+
+        .listing-container-modal-content {
+
+            .listing-container-modal-content-form {
+
+                .listing-container-modal-content__title {
+                    margin-top: 20px;
+
+                    .listing-container-modal-content__title-input {
+                        width: 400px;
+                        font-size: 1.4em;
+                    }
+                }
+
+                .listing-container-modal-content__body {
+                    margin-top: 20px;
+
+                    .listing-container-modal-content__body-input {
+                        width: 400px;
+                        min-height: 200px;
+                        font-size: 1.4em;
+                        resize: none;
+                    }
+                }
+
+                .listing-container-modal-action {
+                    
+                    .listing-container-modal-action__save {
+                        margin-left: 10px;
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+

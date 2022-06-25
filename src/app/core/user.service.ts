@@ -30,4 +30,8 @@ export class UserService {
     loadUser() {
         return this.user;
     }
+
+    getCurrentUser() {
+        return JSON.parse(localStorage.getItem('user'));
+    }
 }

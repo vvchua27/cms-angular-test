@@ -17,7 +17,6 @@
     }
 
     .login-wrapper-container {
-
         text-align: center;
         max-height: 400px;
         margin: 0;
@@ -42,6 +41,7 @@
 
         .error-message {
             color: red;
+            margin-top: 20px;
         }
     }
 }
