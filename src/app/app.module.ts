@@ -12,6 +12,8 @@ import { AuthGuard } from './services/auth.guard';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
+import { NotFoundComponent } from './pages/notfound/not-found.component';
+
 import { ToolbarComponent } from './widget/toolbar/toolbar.component';
 import { ListingComponent } from './widget/listing/listing.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -22,7 +24,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LoginComponent,
     HomeComponent,
     ToolbarComponent,
-    ListingComponent
+    ListingComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

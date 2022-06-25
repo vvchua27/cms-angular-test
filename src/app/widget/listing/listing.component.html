@@ -4,10 +4,10 @@
             <label for="search">Search: </label>
             <input id="search" type="text" (keyup)="search()" formControlName="entry" autocomplete="off">
         </div>
-        <div class="listing-container-form__searchby"listing-coi>
-            <button mat-raised-button (click)="setSearchType('id')"> ID </button>
-            <button mat-raised-button (click)="setSearchType('userId')"> User ID </button>
-            <button mat-raised-button (click)="setSearchType('title')"> Title </button>
+        <div class="listing-container-form__searchby">
+            <button mat-raised-button (click)="setSearchType('id')" [ngClass]="(searchToggle === 'id') ? 'toggle' : ''"> ID </button>
+            <button mat-raised-button (click)="setSearchType('userId')" [ngClass]="(searchToggle === 'userId') ? 'toggle' : ''"> User ID </button>
+            <button mat-raised-button (click)="setSearchType('title')" [ngClass]="(searchToggle === 'title') ? 'toggle' : ''"> Title </button>
         </div>
     </form>
 

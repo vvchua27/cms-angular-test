@@ -30,6 +30,10 @@
 
             button{
                 margin-right: 6px;
+
+                &.toggle {
+                    background-color: rgba(58, 60, 133, 0.96);
+                }
             }
 
             @include screen-mobile() {
@@ -84,10 +88,17 @@
         padding: 20px;
         width: 500px;
 
+        @include screen-mobile() {
+            width: 80%;
+        }
+
         .listing-container-modal-header {
 
             font-size: 1.6em;
             
+            @include screen-mobile() {
+                font-size: 1.2em;
+            }
 
             span {
                 font-weight: bold;
@@ -104,6 +115,11 @@
                     .listing-container-modal-content__title-input {
                         width: 400px;
                         font-size: 1.4em;
+
+                        @include screen-mobile() {
+                            width: 80%;
+                            font-size: 0.96em;
+                        }
                     }
                 }
 
@@ -115,6 +131,11 @@
                         min-height: 200px;
                         font-size: 1.4em;
                         resize: none;
+
+                        @include screen-mobile() {
+                            width: 80%;
+                            font-size: 0.96em;
+                        }
                     }
                 }
 

@@ -52,6 +52,8 @@ export class ListingComponent implements OnInit, OnDestroy {
     selectedArticle: Array<Article> = [];
     selectedAction:any;
 
+    searchToggle = 'id';
+
     isShowModal = false;
 
     constructor(
@@ -124,6 +126,8 @@ export class ListingComponent implements OnInit, OnDestroy {
     }
 
     setSearchType(type:any) {
+
+        this.searchToggle = type;
 
         this.searchForm.patchValue({
             type: type
