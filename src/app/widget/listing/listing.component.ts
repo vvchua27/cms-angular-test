@@ -1,13 +1,11 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 import { UserService } from 'src/app/core/user.service';
 import { AuthService } from 'src/app/core/auth.service';
 import { ArticleService } from 'src/app/core/article.service';
 import { Article } from 'src/app/shared/article.model';
-import { User } from 'src/app/shared/user.model';
 
 @Component({
   selector: 'listing-widget',

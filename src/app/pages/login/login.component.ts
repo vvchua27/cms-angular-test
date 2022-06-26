@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { FormControl, FormGroup } from '@angular/forms';
 
 import { UserService } from 'src/app/core/user.service';
-import { AuthService } from 'src/app/core/auth.service';
 import { LocalStorageService } from 'src/app/core/local-storage.service';
 
 @Component({
@@ -16,7 +15,6 @@ export class LoginComponent {
     constructor(
         private Router: Router,
         private UserService: UserService,
-        private AuthService: AuthService,
         private LocalStorageService: LocalStorageService
     ) { }
 
